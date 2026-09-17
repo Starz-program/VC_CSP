@@ -24,7 +24,7 @@ average = sum(grades)/students
 print(f"The average is {int(average)}")
 
 # Convert the data type
-price =float (input("How much did the item cost: "))
+price = float(input("How much did the item cost:"))
 tax = 0.0485
 sales_tax = price * tax
 total = price + sales_tax
