@@ -30,6 +30,12 @@ print(siblings)
 siblings.pop(3) # <= if no number given pop removes the last item
 print(siblings)
 
+
+#print each item in a list
+for siblings in siblings:
+    print(siblings)
+
+
 #for loops
 for num in range(1,25):
     if num % 15 == 0:
