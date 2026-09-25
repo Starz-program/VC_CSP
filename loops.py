@@ -22,3 +22,21 @@ print("GOOSE!!!")
 # Comprex Data Type = holds other data in it.
 siblings  = ["Alex", "Katie", "Andrew", "Tia", "Treyson", "Xavier", "Jake"]
 print(siblings [2])
+#Adding to a list
+siblings.append("name") # <= adds the item to the end of the list.
+siblings.insert(3, "Vienna")
+print(siblings)
+#Remove from a list
+siblings.pop(3) # <= if no number given pop removes the last item
+print(siblings)
+
+#for loops
+for num in range(1,25):
+    if num % 15 == 0:
+        print("Fizzbuzz")
+    elif num % 3 == 0:
+        print("Fizz")
+    elif num % 5 == 0:
+        print("buzz")
+    else:
+        print(num)
