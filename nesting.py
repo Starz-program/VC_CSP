@@ -1,0 +1,30 @@
+# VC 7th, Nesting notes
+count = 2
+
+for number in range(1,21):
+    if number % 15 == 0:
+        print("Fizzbuzz")
+    elif number % 3 ==0:
+        print("Fizz")
+    elif number % 5 == 0:
+        print("Buzz")
+    else:
+        print(number)
+
+siblings = ["Alex", "Katie", "Andrew", "Vienna", "Tia", "Treyson", "xavier", "Jake"]
+
+count = 1
+if len(siblings) > 0:
+    while count < len(siblings):
+        print(f"{count}. {siblings[count-1]}")
+        count += 1
+    else:
+        print("There are no siblings.")
+
+while count <= 20:
+    print(count)
+    count+=2 #<= counts by two to twenty
+
+for number in range(2,21,2 ):
+    print(number) #<= also counts by two to twenty
+
