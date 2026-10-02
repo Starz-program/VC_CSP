@@ -5,9 +5,9 @@ message = input("Enter your message: ")
 shift = int(input("How many times would you like to shift your message?: "))
 
 def caeser_shift(text, shift_amount):
-    result = " "
+    result = ""
     for char in text:
-        if char.isalphs():
+        if char.isalpha():
             start = ord('A') if char.isupper() else ord('a')
             new_char = chr(start + (ord(char) - start + shift_amount) % 26)
             result += new_char
