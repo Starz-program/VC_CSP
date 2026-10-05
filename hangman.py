@@ -50,3 +50,29 @@ import random
 #Increase the lost count
 #ask if they wanna play again
 
+with open ("hangman.txt", "r") as file:
+    content = file.read()
+
+word = random.choice("hangman.txt")
+guess = 0
+correct = 0
+wrong = 0
+attempts = 0
+play = 0
+with open ("hangman_win_loss.txt", "r+") as file:
+    content = file.read().split(",")
+
+wins = 
+losses = 
+
+
+print("Welcome to hangman! I am going to think of a word, and you are gonna guess what it is by guessing the letters in the word. Good luck!")
+print("_" * len(word))
+
+while attempts > 0:
+    guess_letters = input("Guess a letter: ").lower()
+
+if guess.isalpha() or len(guess)!= 1:
+    print("please enter a single letter")
+if guess in guess:
+    print("you have already guessed that.")
