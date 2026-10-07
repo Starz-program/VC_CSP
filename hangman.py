@@ -49,4 +49,60 @@ import random
 #tell them what the word was
 #Increase the lost count
 #ask if they wanna play again
+print("Welcome to hangman! You will guess a letter in a random word chosen by me. Good luck!")
+hangman_art =[
+"""_______
+|       |
+|
+|
+|
+|
+|__________""",
+"""_______
+|       |
+|       O
+|
+|
+|
+|__________""",
+"""_______
+|       |
+|       O
+|       |
+|
+|
+|__________""",
+"""_______
+|       |
+|       O
+|      /|
+|
+|
+|__________""",
+"""_______
+|       |
+|       O
+|      /|\\
+|
+|
+|__________""",
+"""_______
+|       |
+|       O
+|      /|\\
+|      /
+|
+|__________""",
+"""_______
+|       |
+|       O
+|      /|\\
+|      / \\
+|
+|__________""",
+]
 
+with open("hangman_win_loss.txt", "r") as file:
+    words = file.read().split(",")
+
+answer = random.choice(words).strip().lower()
