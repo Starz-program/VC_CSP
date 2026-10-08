@@ -49,7 +49,7 @@ import random
 #tell them what the word was
 #Increase the lost count
 #ask if they wanna play again
-print("Welcome to hangman! You will guess a letter in a random word chosen by me. Good luck!")
+print("Welcome to hangman! You get 6 guesses for a letter in a random word chosen by me. Good luck!")
 hangman_art =[
 """_______
 |       |
@@ -102,7 +102,54 @@ hangman_art =[
 |__________""",
 ]
 
-with open("hangman_win_loss.txt", "r") as file:
+with open("hangman.txt", "r") as file:
     words = file.read().split(",")
-
+with open("hangman_win_loss.txt", "r") as file:
+    score = file.readlines()
+    wins = int(score[0].split("=")[1])
+    losses = int(score[1].split("=")[1])
 answer = random.choice(words).strip().lower()
+guessed_letters = []
+max_wrong_guesses = 6
+wrong_guesses = 0
+won = False
+
+while wrong_guesses < max_wrong_guesses:
+    print(hangman_art[wrong_guesses])
+    shown_word = ""
+    for letter in answer:
+        if letter in guessed_letters:
+            shown_word = shown_word + letter + " "
+        else:
+            shown_word = shown_word + "_ "
+
+    print(f"\nWord: {shown_word}")
+    print(f"Attempts remaining: {max_wrong_guesses - wrong_guesses}")
+
+    if "_" not in shown_word:
+        print("You win!")
+        wins = wins + 1
+        won = True
+        break
+
+    guess = input("Guess a letter: ").strip().lower()
+    if len(guess) != 1 or not guess.isalpha():
+        print("Please enter only one letter.")
+        continue
+    if guess in guessed_letters:
+        print("You already guessed that letter.")
+        continue
+    guessed_letters.append(guess)
+    if guess not in answer:
+        wrong_guessed = wrong_guesses + 1
+        print("That letter is not in the word.")
+
+if not won:
+    print(hangman_art[wrong_guesses])
+    print(f"\nYou lose! the word was: {answer}.")
+    losses = losses + 1
+
+print(f"Score:{wins} wins, {losses} losses.")
+with open("hangman_win_loss.txt", "w") as file:
+    file.write(f"win = {wins}\n")
+    file.write(f"loss = {losses}\n")
